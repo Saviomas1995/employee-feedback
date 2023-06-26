@@ -33,6 +33,10 @@ const userFeedBackSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  email: {
+    type: String,
+    required: true,
+  },
   department: {
     type: String,
     required: true,
@@ -45,10 +49,56 @@ const userFeedBackSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  topic: {
+    type: String,
+    required: true,
+  },
+  anonymous: {
+    type: Boolean,
+    required: true,
+  },
+});
+
+const userFeedBackTopicSchema = new mongoose.Schema({
+  topicName: {
+    type: String,
+    required: true,
+  },
+  topicValue: {
+    type: String,
+    required: true,
+  },
+});
+
+const userAnnouncementSchema = new mongoose.Schema({
+  announcementHeading: {
+    type: String,
+    required: true,
+  },
+  announcementHeadingValue: {
+    type: String,
+    required: true,
+  },
+  announcementDescription: {
+    type: String,
+    required: true,
+  },
+  announcementSummary: {
+    type: String,
+    required: true,
+  },
 });
 
 export const UserSignUp = mongoose.model("User", userSignUpSchema);
 export const UserFeedbackForm = mongoose.model(
   "UserFeedback",
   userFeedBackSchema
+);
+export const UserFeedbackTopicForm = mongoose.model(
+  "UserFeedbackTopic",
+  userFeedBackTopicSchema
+);
+export const UserAnnouncementForm = mongoose.model(
+  "UserAnnouncement",
+  userAnnouncementSchema
 );
